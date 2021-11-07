@@ -3,6 +3,17 @@ import java.math.BigInteger;
 import java.util.*;
 
 public class Main {
+    public static void func(List<String> list) {
+        for (String x : list) {
+            System.out.println(x);
+        }
+    }
+
+    public static void func(Set<Integer> set) {
+        for (Integer x : set) {
+            System.out.println(x);
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -18,6 +29,36 @@ public class Main {
                 d) następnie proszę wykonać odwrotne sortowanie i znów użyć metody z punktu b) do wyświetlenia
                 elementów listy
           */
+        Scanner scan = new Scanner(System.in);
+        List<String> list = new ArrayList<>();
+        int numAnimals = 5;
+
+        for (int i = 0; i < numAnimals; i++) {
+            System.out.printf("Podaj nazwę %d zwierzęcia: ", i + 1);
+            list.add(scan.next());
+        }
+        System.out.println("#########");
+        func(list);
+
+        for (int i = numAnimals - 1; i >= numAnimals - 2; i--) {
+            list.remove(i);
+        }
+
+        System.out.println("#########");
+        func(list);
+
+        for (int i = 0; i < 3; i++) {
+            System.out.printf("Podaj nazwę %d zwierzęcia: ", list.size() + 1);
+            list.add(scan.next());
+        }
+
+        System.out.println("#########");
+        func(list);
+
+        Collections.sort(list, Collections.reverseOrder());
+
+        System.out.println("#########");
+        func(list);
 
 
          /* zad.2 Napisać program który stworzy Set<Integer> i wprowadzamy 10 liczb z klawiatury
@@ -25,6 +66,15 @@ public class Main {
                  a następnie przeiterować i wyświetlić forEach-em (jak wyżej)
          */
 
+        Set<Integer> set = new TreeSet<>();
+
+        for (int i = 0; i < 10; i++) {
+            System.out.printf("Podaj %d liczbę: ", i + 1);
+            set.add(scan.nextInt());
+        }
+
+        System.out.println("#########");
+        func(set);
     }
 
 }
